@@ -1,0 +1,197 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    margin: 0;
+    font-family: 'Pretendard', sans-serif;
+    background: #f8f8f8;
+}
+
+#detail-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+/* 상단 영역 */
+.product-top {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+/* 왼쪽 이미지 */
+.product-image {
+    flex: 1;
+}
+
+.product-image img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+/* 오른쪽 정보 */
+.product-info {
+    flex: 1;
+}
+
+.product-info h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.price {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: rgb(223, 43, 43);
+}
+
+.price span{
+    font-size: 19px;
+}
+
+.option-box,
+.quantity-box {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;   /* 8 → 12~15 */
+    max-width: 400px;
+}
+
+.quantity-box {
+    margin-top: 20px;
+}
+
+select,
+input {
+    width: 100%;
+    box-sizing: border-box;
+    height: 40px;
+    padding: 0 10px;
+    font-size: 16px;
+}
+
+.btn-group {
+    display: flex;
+    gap: 10px;            
+    max-width: 400px;
+    margin-top: 30px;
+}
+
+.cart-btn,
+.buy-btn {
+    flex: 1;
+    height: 65px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: ease-out 0.3s;
+}
+
+/* 장바구니 버튼 */
+.cart-btn {
+    background: white;
+    border: 1px solid black;
+    color: black;
+}
+
+.cart-btn:hover {
+    background: #f2f2f2;
+}
+
+/* 구매하기 버튼 */
+.buy-btn {
+    background: black;
+    color: white;
+    border: none;
+}
+
+.buy-btn:hover {
+    background: #333;
+}
+
+/* 하단 상세 이미지 */
+.product-detail {
+    margin-top: 80px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.product-detail img {
+    width: 100%;
+    display: block;
+}
+
+/* Top 버튼 */
+.top_button {
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    width: 40px;
+    height: 40px;
+    background-color: #484653;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+}
+
+.top_button.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.top_button:hover {
+    transform: translateY(-5px);
+}
+
+.top_button a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+    /* 아이콘 크기 */
+}
+
+
+@media (max-width: 768px) {
+
+    .product-top {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-image,
+    .product-info {
+        width: 100%;
+        max-width: 400px;
+    }
+
+}

@@ -322,22 +322,17 @@ nav:has(a:hover) a:not(:hover) {
 /* mb 메인배너 */
 
 #home {
-    overflow: hidden;
-    height: 100vh;
     position: relative;
+    width: 100%;
+    aspect-ratio: 1920 / 930;
+    overflow: hidden;
+    background: black;
 }
 
 .main_video {
-    position: absolute;
-    top: 0px;
-    left: 50%;
-    transform: translateX(-50%);
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -1000;
-    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .main {
@@ -1271,14 +1266,13 @@ transition: opacity 0.3s ease; /* transition-all 대신 opacity만 주세요 */
     transition: all 0.5s;
 }
 
-
+/* 
 .popup.pop1.active .card_slide {
     width: 500px;
-    /* 적당한 이미지 카드 크기 */
     height: 600px;
     transition: all 0.5s ease;
     background: none;
-}
+} */
 
 .card_slide .swiper-slide {
     padding: 0;
@@ -1334,7 +1328,7 @@ transition: opacity 0.3s ease; /* transition-all 대신 opacity만 주세요 */
 }
 
 /* 팝업 내부 슬라이더를 꽉 채우게 */
-.popup.pop1.active .card_slide {
+/* .popup.pop1.active .card_slide {
     width: 400px;
     height: 500px;
     max-width: 100%;
@@ -1342,7 +1336,7 @@ transition: opacity 0.3s ease; /* transition-all 대신 opacity만 주세요 */
     transition: all 0.5s ease;
     background: none;
     overflow: hidden;
-}
+} */
 
 /* 슬라이더 영역 확실히 채우기 */
 .card_slide .swiper {
@@ -1362,7 +1356,7 @@ transition: opacity 0.3s ease; /* transition-all 대신 opacity만 주세요 */
     align-items: center;
 }
 
-.popup.pop1.active .card_slide {
+/* .popup.pop1.active .card_slide {
     width: 400px;
     height: 500px;
     max-width: 100%;
@@ -1370,7 +1364,7 @@ transition: opacity 0.3s ease; /* transition-all 대신 opacity만 주세요 */
     background: none;
     overflow: hidden;
     transition: all 0.5s ease;
-}
+} */
 
 .card_slide .swiper {
     width: 100%;
@@ -1398,16 +1392,7 @@ transition: opacity 0.3s ease; /* transition-all 대신 opacity만 주세요 */
 
 
 /* 팝업 슬라이드 크기를 조금 더 키운 버전 */
-.popup.pop1 .swiper-container {
-    width: 95vw;
-    /* ✅ 기존 90vw → 95vw로 확대 */
-    height: 300px;
-    max-width: 1100px;
-    /* ✅ 기존 1000px → 1100px로 확대 */
-    box-sizing: border-box;
-    /* ✅ 패딩 포함한 너비 계산 */
-    overflow: hidden;
-}
+
 
 .popup.pop1 .swiper-slide img {
     width: 100%;
@@ -1599,9 +1584,14 @@ transition: opacity 0.3s ease; /* transition-all 대신 opacity만 주세요 */
 }
 
 /* 카드 전용 스타일 */
-.card_slide {
+/* .card_slide {
     width: 120%;
     height: 500px;
+} */
+
+.card_slide {
+    width: 100%;
+    height: 100%;
 }
 
 .card_slide .swiper {
@@ -1648,7 +1638,7 @@ transition: opacity 0.3s ease; /* transition-all 대신 opacity만 주세요 */
 }
 
 /* 팝업 카드 슬라이드 - 크기 조절 */
-.popup.pop1.active .card_slide {
+.popup.active .card_slide {
     width: 950px;
     height: 650px;
     max-width: 100%;
@@ -1681,11 +1671,18 @@ transition: opacity 0.3s ease; /* transition-all 대신 opacity만 주세요 */
 }
 
 /* pop1의 슬라이더 영역 크기 확장 */
-.popup.pop1 .swiper-container {
+/* .popup.pop1 .swiper-container {
     width: 100vw;
     height: auto;
     max-width: 1100px;
     box-sizing: border-box;
+    overflow: hidden;
+} */
+
+.popup .swiper-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
     overflow: hidden;
 }
 
@@ -1708,14 +1705,13 @@ transition: opacity 0.3s ease; /* transition-all 대신 opacity만 주세요 */
     /* ✅ 좀 더 큰 이미지 허용 */
 }
 
-.popup.pop1 .swiper-container {
+/* .popup.pop1 .swiper-container {
     width: 100%;
-    /* ✅ 슬라이드 전체 너비로 */
     max-width: 1100px;
     overflow: hidden;
     padding-right: 120px;
-    /* padding-top: 50px; */
-}
+    padding-top: 50px;
+} */
 
 #contact .col-md-4 img {
     transition: transform 0.3s ease;

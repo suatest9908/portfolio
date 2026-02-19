@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>라브아 퍼퓸 바디워시</title>
+    <link rel="icon" href="./img/favicon.ico">
+    <link href="ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <div id="detail-container">
+
+        <!-- 상단 상품 영역 -->
+        <div class="product-top">
+
+            <!-- 왼쪽 상품 이미지 -->
+            <div class="product-image">
+                <img src="../img/lavoir_main.jpg" alt="라브아 바디워시">
+            </div>
+
+            <!-- 오른쪽 상품 정보 -->
+            <div class="product-info">
+                <h2>라브아 퍼퓸 바디워시 1.5L</h2>
+                <p class="price">19,900<span>원</span></p>
+
+                <!-- 옵션 선택 -->
+                <div class="option-box">
+                    <label>향</label>
+                    <select>
+                        <option>튤립&프리지아</option>
+                    </select>
+                </div>
+
+                <!-- 수량 선택 -->
+                <div class="quantity-box">
+                    <label>수량</label>
+                    <input type="number" value="1" min="1">
+                </div>
+
+                <div class="btn-group">
+                    <button class="cart-btn">장바구니</button>
+                    <button class="buy-btn">구매하기</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 하단 상세 이미지 영역 -->
+        <div class="product-detail">
+            <img src="./img/detail_img.png" alt="상세페이지">
+        </div>
+
+    </div>
+    <!-- Top 버튼 -->
+    <div class="top_button">
+        <a href="#detail-container"><i class="ion-chevron-up"></i></a>
+    </div>
+
+    <script src="./js/jquery-3.7.1.min.js"></script>
+    <script>
+        // Top 버튼 사라졌다가 나타나기
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > 100) {
+                $('.top_button').addClass('show');
+            } else {
+                $('.top_button').removeClass('show');
+            }
+        });
+
+        $(function () {
+            $('a[href*="#"]:not([href="#"])').click(function () {
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        $('html, body').animate({
+                            scrollTop: target.offset().top
+                        }, 500);//움직이는 시간 조정
+                        return false;
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
