@@ -139,7 +139,7 @@ body {
     width: 100%;
     -webkit-animation: rotation 1s linear infinite;
     animation: rotation 1s linear infinite;
-    border: 2px solid #0f563e;
+    border: 2px solid #454545;
     border-top: 2px solid transparent;
     border-radius: 100%
 }
@@ -900,6 +900,43 @@ nav:has(a:hover) a:not(:hover) {
 
 #artwork .col-md-4 img:hover {
     transform: scale(1.1, 1.1);
+}
+
+/* portfolio section
+==================================================*/
+#portfolio {
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+#portfolio .portfolio-inner {
+    padding-top: 30px; /* 큰 제목(H1)과 본문 사이의 균형감 있는 간격 조정 */
+}
+
+/* 💡 Portfolio 섹션 내부의 이미지 상자 프레임을 project3-2 규격으로 강제 지정 */
+#portfolio .portfolio-border {
+    width: 100%;
+    max-width: 1136px;          /* 최대 너비를 project3-2 크기로 제한 */
+    aspect-ratio: 1136 / 472;   /* 💡 project3-2와 밀리미터 단위까지 정확히 똑같은 비율 고정 */
+    margin: 0 auto 15px auto;
+    overflow: hidden;
+    border-radius: 40px;
+    position: relative;
+}
+
+/* 💡 어떤 비율의 이미지를 넣어도 틀에 맞춰 꽉 채우고 확대 처리 */
+#portfolio .portfolio-border img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;    /* 💡 핵심: 여백 없이 상자 프레임에 이미지를 꽉 채우고 넘치는 곳을 자름 */
+    object-position: center !important; /* 가운데를 기준으로 채우기 */
+    border-radius: 40px;
+    transition: 0.5s;
+}
+
+/* 호버 시 확대 효과 */
+#portfolio .portfolio-border:hover img {
+    transform: scale(1.05);
 }
 
 /* popup section
@@ -1926,4 +1963,78 @@ transition: opacity 0.3s ease; /* transition-all 대신 opacity만 주세요 */
     background: #7a7a7a; 
     border-radius: 10px;
     border: 2px solid #e0e0e0;
+}
+
+/* Custom Cursor Style
+==================================================*/
+/* 기본 커서 숨기기 (데스크톱에서만) */
+@media (hover: hover) and (pointer: fine) {
+    body {
+        cursor: none;
+    }
+    
+    a, button, input, select, textarea {
+        cursor: none;
+    }
+}
+
+.cursor-dot,
+.cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    pointer-events: none; /* 커서가 클릭을 방해하지 않도록 설정 */
+    z-index: 99999;
+    transform: translate(-50%, -50%);
+}
+
+.cursor-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #454545; /* 중심점 컬러 */
+    transition: width 0.2s, height 0.2s;
+}
+
+.cursor-ring {
+    width: 36px;
+    height: 36px;
+    border: 1px solid #5a84c2; /* 링 컬러 (포트폴리오 버튼 톤) */
+    transition: width 0.2s ease-out, height 0.2s ease-out, background-color 0.2s ease-out, border-color 0.2s ease-out;
+}
+
+/* 링크나 버튼에 마우스를 올렸을 때의 Hover 효과 */
+.cursor-ring.hovered {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(90, 132, 194, 0.15); /* 부드럽게 채워지는 배경 */
+    border-color: transparent;
+}
+
+/* 클릭 시 생기는 브라우저 기본 포커스(아웃라인) 제거
+==================================================*/
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none !important;      /* 기본 검은색/파란색 테두리 제거 */
+    box-shadow: none !important;   /* 브라우저에 따라 생기는 그림자 효과 제거 */
+}
+
+/* 모바일 기기에서 터치할 때 생기는 반투명한 회색 배경(하이라이트)도 함께 제거 */
+a, button {
+    -webkit-tap-highlight-color: transparent !important;
+}
+
+/* 드래그(선택) 영역 커스텀 - 모던 블랙 */
+::selection {
+    background-color: #454545; /* 배경: 다크 그레이 */
+    color: #ffffff;            /* 글자: 흰색 */
+}
+
+/* 파이어폭스 브라우저 호환성을 위한 코드 */
+::-moz-selection {
+    background-color: #454545;
+    color: #ffffff;
 }
