@@ -29,23 +29,26 @@ body {
 /* 상단 영역 */
 .product-top {
     display: flex;
-    gap: 50px;
+    /* gap: 50px; */
+    justify-content: center;
     align-items: flex-start;
 }
 
 /* 왼쪽 이미지 */
-.product-image {
+/* .product-image {
     flex: 1;
-}
+} */
 
-.product-image img {
+/* .product-image img {
     width: 100%;
     border-radius: 20px;
-}
+} */
 
 /* 오른쪽 정보 */
 .product-info {
-    flex: 1;
+    /* flex: 1; */
+    width: 100%;
+    max-width: 400px;
 }
 
 .product-info h2 {
