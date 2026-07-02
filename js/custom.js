@@ -483,3 +483,47 @@ $(document).ready(function () {
         }
     });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const dot = document.querySelector('.cursor-dot');
+    const ring = document.querySelector('.cursor-ring');
+    
+    // 모바일 기기에서는 커서 효과를 끕니다.
+    if (!dot || !ring || window.innerWidth <= 768) return;
+
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let ringX = mouseX;
+    let ringY = mouseY;
+
+    // 마우스 좌표 업데이트
+    window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        
+        // 중심점(Dot)은 마우스를 지연 없이 즉각적으로 따라갑니다.
+        dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+    });
+
+    // 링(Ring)에 부드러운 텐션(가속도) 주기
+    const render = () => {
+        // 숫자가 1에 가까울수록 빠르고, 0에 가까울수록 묵직하게 따라옵니다 (현재 0.15)
+        ringX += (mouseX - ringX) * 0.15;
+        ringY += (mouseY - ringY) * 0.15;
+        
+        ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
+        requestAnimationFrame(render);
+    };
+    render();
+
+    // Hover 인터랙션 (링크, 버튼 위에 올렸을 때)
+    const interactables = document.querySelectorAll('a, button, input, textarea, select');
+    interactables.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            ring.classList.add('hovered');
+        });
+        el.addEventListener('mouseleave', () => {
+            ring.classList.remove('hovered');
+        });
+    });
+});
