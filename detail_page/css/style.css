@@ -183,6 +183,27 @@ input {
     /* 아이콘 크기 */
 }
 
+/* 탑 버튼 내부 아이콘 시각적 위치 미세조정 */
+.top_button a i {
+    transform: translateY(1px); /* 숫자를 늘릴수록 아래로 더 내려갑니다 */
+}
+
+/* 스크롤바 너비 */
+::-webkit-scrollbar {
+    width: 14px;
+}
+
+/* 스크롤바 배경 */
+::-webkit-scrollbar-track {
+    background: #e2e2e2; 
+}
+
+/* 스크롤바 막대색 */
+::-webkit-scrollbar-thumb {
+    background: #7a7a7a; 
+    border-radius: 10px;
+    border: 2px solid #e0e0e0;
+}
 
 @media (max-width: 768px) {
 
